@@ -1,4 +1,4 @@
-from tkinter import Tk, Canvas, Frame, Label, Entry, Button, W, E, Listbox, messagebox, END
+from tkinter import StringVar, Tk, Canvas, Frame, Label, Entry, Button, W, E, Listbox, messagebox, END
 
 import psycopg2
 
@@ -7,10 +7,10 @@ root.title("Python & PosgreSQL Transaccion")
 
 
 hostt= "localhost"
-portt = "5438"
-db = "banco"
-user = "prueba"
-password = "aeiou123"
+portt = "5433"
+db = "TALLER78"
+user = "postgres"
+password = "admin"
 
 def search(id):
     conn = psycopg2.connect(host=hostt, port=portt, database=db, user= user, password=password)
@@ -127,27 +127,37 @@ label = Label(frame, text="Configuraciones de la conexion")
 label.grid(row=1, column=0)
 label = Label(frame, text="Host")
 label.grid(row=2, column=0)
-entry_host = Entry(frame)
+entrada1= StringVar()
+entrada1.set("localhost")
+entry_host = Entry(frame, textvariable=entrada1)
 entry_host.grid(row=2, column=1)
 entry_host.focus()
 label = Label(frame, text="Puerto")
 label.grid(row=3, column=0)
-entry_port = Entry(frame)
+entrada2= StringVar()
+entrada2.set("5432")
+entry_port = Entry(frame, textvariable=entrada2)
 entry_port.grid(row=3, column=1)
 entry_port.focus()
 label = Label(frame, text="Usuario")
 label.grid(row=2, column=2)
-entry_user = Entry(frame)
+entrada3= StringVar()
+entrada3.set("postgres")
+entry_user = Entry(frame, textvariable=entrada3)
 entry_user.grid(row=2, column=3)
 entry_user.focus()
 label = Label(frame, text="Contraseña")
 label.grid(row=3, column=2)
-entry_contraseña = Entry(frame)
+entrada4= StringVar()
+entrada4.set("admin")
+entry_contraseña = Entry(frame,textvariable=entrada4)
 entry_contraseña.grid(row=3, column=3)
 entry_contraseña.focus()
 label = Label(frame, text="DB")
 label.grid(row=2, column=4)
-entry_db = Entry(frame)
+entrada5= StringVar()
+entrada5.set("TALLER78")
+entry_db = Entry(frame,textvariable=entrada5)
 entry_db.grid(row=2, column=5)
 entry_db.focus()
 # Button
